@@ -1,0 +1,16 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "title": "Test Article 1",
+      "abstract": "Abstract 1",
+      "url": "http://example.com/1"
+    },
+    {
+      "id": 2,
+      "title": "Test Article 2",
+      "abstract": "Abstract 2",
+      "url": "http://example.com/2"
+    }
+  ]
+}
