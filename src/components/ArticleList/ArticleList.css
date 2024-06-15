@@ -1,0 +1,9 @@
+.article-list {
+  list-style: none;
+  padding: 0;
+}
+.article-list li {
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+}

@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import ArticleListContainer from './components/ArticleListContainer/ArticleListContainer';
+import ArticleDetailContainer from './components/ArticleDetailContainer/ArticleDetailContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    selectedArticle: null,
+  };
+
+  handleSelectArticle = (article) => {
+    this.setState({ selectedArticle: article });
+  };
+
+  handleBack = () => {
+    this.setState({ selectedArticle: null });
+  };
+
+  render() {
+    const { selectedArticle } = this.state;
+
+    return (
+      <div className="App">
+        {selectedArticle ? (
+          <ArticleDetailContainer article={selectedArticle} onBack={this.handleBack} />
+        ) : (
+          <ArticleListContainer onSelectArticle={this.handleSelectArticle} />
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
