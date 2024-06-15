@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# NY Times App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application that displays the most popular articles from the NY Times. Users can view a list of articles and see details for each article when clicked.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Fetches and displays a list of the most popular articles from the NY Times API.
+- Displays article details when an article is clicked.
+- Includes unit tests with Jest and React Testing Library.
+- Includes end-to-end tests with Cypress.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (>= 12.x)
+- npm (>= 6.x) or yarn (>= 1.x)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/mtachaudhary/ny-times.git
+   cd ny-times-app
+   ```
 
-### `npm run build`
+2. Install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running the Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Start the development server:
 
-### `npm run eject`
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running Tests
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Unit Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Unit tests are written using Jest and React Testing Library.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To run the unit tests:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To generate a coverage report:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm test -- --coverage
+```
+Coverage reports will be available in the coverage directory.
 
-### Code Splitting
+### End-to-End Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+End-to-end tests are written using Cypress.
 
-### Analyzing the Bundle Size
+1. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+2. Open Cypress in a new terminal:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npx cypress open
+   ```
 
-### Advanced Configuration
+3. Run the tests by selecting `articles.cy.js` in the Cypress Test Runner.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Structure
 
-### Deployment
+- `src/`: Contains the source code for the React application.
+  - `components/`: Contains React components.
+  - `App.js`: Main application component.
+  - `index.js`: Entry point of the application.
+- `cypress/`: Contains Cypress end-to-end tests.
+  - `fixtures/`: Contains fixture data for tests.
+  - `e2e/`: Contains test specifications.
+  - `support/`: Contains support files and custom commands.
+- `public/`: Contains the public assets for the application.
+- `package.json`: Contains the project configuration and dependencies.
+- `cypress.config.json`: Contains Cypress configuration.
+- `.gitignore`: Contains files and directories to be ignored while commiting.
+- `README.md`: This file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## API Key
 
-### `npm run build` fails to minify
+Replace `REACT_APP_NY_API_KEY` in `.env` file with your actual NY Times API key. You can obtain an API key by signing up on the [NY Times Developer site](https://developer.nytimes.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+
+- This project is intended for educational purposes and development use. Do not use the public CORS proxy in production.
+- Ensure that your API key is kept secure and not exposed in a public repository.
+
