@@ -58,9 +58,12 @@ npm start
 To generate a coverage report:
 
 ```bash
-npm test -- --coverage
+npm run test:coverage
 ```
-Coverage reports will be available in the coverage directory.
+After running the tests with coverage, you can open the coverage report to see detailed information.
+
+1. In your project root, you will find a `coverage` directory.
+2. Open the `index.html` file in the `coverage/lcov-report` directory in your web browser to view the coverage report.
 
 ### End-to-End Tests
 
