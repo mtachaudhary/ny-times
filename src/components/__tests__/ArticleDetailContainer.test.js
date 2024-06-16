@@ -1,15 +1,26 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ArticleDetailContainer from '../ArticleDetailContainer/ArticleDetailContainer';
-import { ArticleProvider } from '../../context/ArticleContext';
+import { ArticleContext, ArticleProvider } from '../../context/ArticleContext';
 
-const article = { id: 1, title: 'Test Article', abstract: 'Abstract', url: 'http://example.com' };
+// Mock Article Context
+const mockArticle = {
+  title: 'Test Article',
+  abstract: 'Abstract',
+  url: 'http://example.com',
+};
+
+const MockArticleProvider = ({ children }) => (
+  <ArticleContext.Provider value={{ selectedArticle: mockArticle, setSelectedArticle: jest.fn() }}>
+    {children}
+  </ArticleContext.Provider>
+);
 
 test('renders article details container', () => {
   render(
-    <ArticleProvider value={{ selectedArticle: article }}>
+    <MockArticleProvider>
       <ArticleDetailContainer />
-    </ArticleProvider>
+    </MockArticleProvider>
   );
 
   expect(screen.getByText(/Test Article/i)).toBeInTheDocument();
