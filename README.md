@@ -29,6 +29,12 @@ This is a simple React application that displays the most popular articles from 
    npm install
    ```
 
+3. Create `.env` file and add variable:
+
+   ```bash
+   REACT_APP_NY_API_KEY="YOUR_API_KEY"
+   ```
+
 ## Running the Application
 
 1. Start the development server:
@@ -80,6 +86,7 @@ End-to-end tests are written using Cypress.
   - `components/`: Contains React components.
   - `App.js`: Main application component.
   - `index.js`: Entry point of the application.
+  - `context/`: Contains app context to manage states.
 - `cypress/`: Contains Cypress end-to-end tests.
   - `fixtures/`: Contains fixture data for tests.
   - `e2e/`: Contains test specifications.
@@ -92,7 +99,7 @@ End-to-end tests are written using Cypress.
 
 ## API Key
 
-Replace `REACT_APP_NY_API_KEY` in `.env` file with your actual NY Times API key. You can obtain an API key by signing up on the [NY Times Developer site](https://developer.nytimes.com/).
+Replace `YOUR_API_KEY` for `REACT_APP_NY_API_KEY` in `.env` file with your actual NY Times API key. You can obtain an API key by signing up on the [NY Times Developer site](https://developer.nytimes.com/).
 
 ## Notes
 

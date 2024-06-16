@@ -2,33 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import ArticleListContainer from './components/ArticleListContainer/ArticleListContainer';
 import ArticleDetailContainer from './components/ArticleDetailContainer/ArticleDetailContainer';
+import { ArticleContext, ArticleProvider } from './context/ArticleContext';
 
 class App extends Component {
-  state = {
-    selectedArticle: null,
-  };
-
-  handleSelectArticle = (article) => {
-    this.setState({ selectedArticle: article });
-  };
-
-  handleBack = () => {
-    this.setState({ selectedArticle: null });
-  };
+  static contextType = ArticleContext;
 
   render() {
-    const { selectedArticle } = this.state;
+    const { selectedArticle } = this.context;
 
     return (
       <div className="App">
-        {selectedArticle ? (
-          <ArticleDetailContainer article={selectedArticle} onBack={this.handleBack} />
-        ) : (
-          <ArticleListContainer onSelectArticle={this.handleSelectArticle} />
-        )}
+        {
+          selectedArticle ?
+          <ArticleDetailContainer /> :
+          <ArticleListContainer />
+        }
       </div>
     );
   }
 }
 
-export default App;
+const AppWithProvider = () => (
+  <ArticleProvider>
+    <App />
+  </ArticleProvider>
+);
+
+export default AppWithProvider;

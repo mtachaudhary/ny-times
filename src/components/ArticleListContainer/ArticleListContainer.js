@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ArticleList from '../ArticleList/ArticleList';
+import { ArticleContext } from '../../context/ArticleContext';
 
 class ArticleListContainer extends Component {
+  static contextType = ArticleContext;
+
   state = {
     articles: [],
     loading: true,
@@ -31,7 +34,7 @@ class ArticleListContainer extends Component {
 
   render() {
     const { articles, loading, error } = this.state;
-    const { onSelectArticle } = this.props;
+    const { setSelectedArticle } = this.context;
 
     if (loading) {
       return <div>Loading...</div>;
@@ -41,7 +44,7 @@ class ArticleListContainer extends Component {
       return <div>{error}</div>;
     }
 
-    return <ArticleList articles={articles} onSelectArticle={onSelectArticle} />;
+    return <ArticleList articles={articles} onSelectArticle={setSelectedArticle} />;
   }
 }
 
