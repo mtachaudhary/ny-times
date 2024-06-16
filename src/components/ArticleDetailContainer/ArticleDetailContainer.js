@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import ArticleDetail from '../ArticleDetail/ArticleDetail';
+import { ArticleContext } from '../../context/ArticleContext';
 
 class ArticleDetailContainer extends Component {
-  render() {
-    const { article, onBack } = this.props;
+  static contextType = ArticleContext;
 
-    return <ArticleDetail article={article} onBack={onBack} />;
+  render() {
+    const { selectedArticle, setSelectedArticle } = this.context;
+
+    return <ArticleDetail article={selectedArticle} onBack={() => setSelectedArticle(null)} />;
   }
 }
 

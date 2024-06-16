@@ -1,6 +1,7 @@
-import React, { act } from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import ArticleListContainer from '../ArticleListContainer/ArticleListContainer';
+import { ArticleProvider } from '../../context/ArticleContext';
 
 // Mock fetch
 beforeAll(() => {
@@ -17,13 +18,21 @@ afterAll(() => {
 });
 
 test('renders loading state initially', () => {
-  render(<ArticleListContainer />);
+  render(
+    <ArticleProvider>
+      <ArticleListContainer />
+    </ArticleProvider>
+  );
   expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
 });
 
 test('renders articles after fetching', async () => {
   await act(async () => {
-    render(<ArticleListContainer onSelectArticle={() => {}} />);
+    render(
+      <ArticleProvider>
+        <ArticleListContainer />
+      </ArticleProvider>
+    );
   });
 
   await waitFor(() => {
