@@ -4,7 +4,7 @@ import ArticleListContainer from '../ArticleListContainer/ArticleListContainer';
 import { ArticleProvider } from '../../context/ArticleContext';
 
 // Mock fetch
-beforeAll(() => {
+beforeEach(() => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       ok: true,
@@ -13,7 +13,7 @@ beforeAll(() => {
   );
 });
 
-afterAll(() => {
+afterEach(() => {
   global.fetch.mockClear();
 });
 
